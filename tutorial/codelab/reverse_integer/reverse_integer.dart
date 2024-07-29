@@ -14,6 +14,11 @@ void main() {
 
   while (n % 10 != 0) {
     int digit = n % 10;
+
+    if (ans.isInfinite) {
+      print("Out of Range");
+      break;
+    }
     ans = (ans * 10) + digit;
 
     n = n ~/ 10;
