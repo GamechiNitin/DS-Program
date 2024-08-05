@@ -14,7 +14,6 @@ bool isPossibleSol(vector<int> stalls, int cows, int mid)
     {
         if (stalls[i] - sum >= mid)
         {
-            sum += stalls[i];
             cowsCount++;
             if (cowsCount == cows)
             {
