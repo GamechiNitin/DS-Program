@@ -28,5 +28,3 @@ void sorts(List<int> selection) {
   }
   print(selection);
 }
-
-void swap() {}
