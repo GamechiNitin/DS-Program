@@ -42,4 +42,10 @@ int main()
     delete[] jaggedArray; // Delete the array of pointers
 
     return 0;
+
+    /*
+    0 1 2
+    10 11 12 13 14
+    20 21
+    */
 }
