@@ -18,6 +18,21 @@ void insertAtBotton(stack<int> &s, int value)
     }
 }
 
+void reverse(stack<int> &s)
+{
+    if (s.empty())
+    {
+        return;
+    }
+
+    int num = s.top();
+    s.pop();
+
+    reverse(s);
+
+    insertAtBotton(s, num);
+}
+
 int main()
 {
     stack<int> s;
@@ -27,7 +42,7 @@ int main()
     s.push(40);
 
     cout << "Before size : " << s.size() << endl;
-    insertAtBotton(s, 3);
+    reverse(s);
 
     cout << "After size : " << s.size() << endl;
 
