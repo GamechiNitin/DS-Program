@@ -117,6 +117,72 @@ void reverseLevelOrderTraversal(Node *root)
     cout << endl; // New line after traversal
 }
 
+void preOrder(Node *root)
+{
+    if (root == NULL)
+        return;
+
+    // NLR
+    cout << root->data << " ";
+    preOrder(root->left);
+    preOrder(root->right);
+}
+void inOrder(Node *root)
+{
+    if (root == NULL)
+        return;
+
+    // LNR
+    inOrder(root->left);
+    cout << root->data << " ";
+    inOrder(root->right);
+}
+void postOrder(Node *root)
+{
+    if (root == NULL)
+        return;
+
+    // LRN
+    postOrder(root->left);
+    postOrder(root->right);
+    cout << root->data << " ";
+}
+
+void buildLevelOrder(Node *&root)
+{
+    queue<Node *> q;
+    cout << "Enter Data for root: " << endl;
+    int data;
+    cin >> data;
+    root = new Node(data);
+    q.push(root);
+
+    while (!q.empty())
+    {
+        Node *temp = q.front();
+        q.pop();
+
+        cout << "Enter left Node for : " << temp->data << endl;
+        int leftData;
+        cin >> leftData;
+
+        if (leftData != -1)
+        {
+            temp->left = new Node(leftData);
+            q.push(temp->left);
+        }
+        cout << "Enter Right Node for : " << temp->data << endl;
+        int rightData;
+        cin >> rightData;
+
+        if (rightData != -1)
+        {
+            temp->right = new Node(rightData);
+            q.push(temp->right);
+        }
+    }
+}
+
 int main()
 {
     Node *root = NULL;      // Initialize the root of the tree
@@ -124,6 +190,23 @@ int main()
 
     // Example input format: 1 3 7 -1 -1 11 -1 -1 5 17 -1 -1 -1
     levelOrderTraversal(root);
+    cout << endl
+         << "reverseLevelOrderTraversal : ";
     reverseLevelOrderTraversal(root);
+    cout << endl
+         << "Inorder : ";
+    inOrder(root);
+    cout << endl
+         << "preOrder : ";
+    preOrder(root);
+    cout << endl
+         << "postOrder : ";
+    postOrder(root);
+
+    // -------
+    Node *root2 = NULL; // Initialize the root of the tree
+    buildLevelOrder(root2);
+    // Example input format: 1 3 7 -1 -1 11 -1 -1 5 17 -1 -1 -1
+    levelOrderTraversal(root2);
     return 0;
 }
