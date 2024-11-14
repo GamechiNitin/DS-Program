@@ -132,13 +132,14 @@ int main()
        3 4
        0 4
 
-       op: 4->3, 0,
+       op:
+       4->3, 0,
        3->2, 1, 4,
        2->1, 3,
        1->0, 2, 3,
        0->1, 4,
 
-Time and space O(V+E)
+       Time and space O(V+E)
    */
     return 0;
 }
